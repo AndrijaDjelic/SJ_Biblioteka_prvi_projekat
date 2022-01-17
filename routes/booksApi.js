@@ -31,7 +31,7 @@ function authToken(req, res, next) {
         .catch(err => res.status(500).json(err));
 });
 
-route.get('/:id', (req, res) => {
+route.get('/findById/:id', (req, res) => {
     Books.findOne({ where: { id: req.params.id } })
         .then( rows => res.json(rows) )
         .catch( err => res.status(500).json(err) );
