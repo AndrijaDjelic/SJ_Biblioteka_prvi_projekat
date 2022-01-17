@@ -14,7 +14,30 @@ module.exports = {
    await queryInterface.bulkInsert('RentBooks', [
       {
         available:true,
-        bookId: 9,
+        bookId: 2,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        available:true,
+        bookId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },{
+        available:true,
+        bookId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        available:true,
+        bookId: 2,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        available:true,
+        bookId: 3,
         createdAt: new Date(),
         updatedAt: new Date()
       }

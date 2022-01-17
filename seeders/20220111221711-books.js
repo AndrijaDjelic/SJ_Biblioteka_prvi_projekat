@@ -37,13 +37,21 @@ module.exports = {
         updatedAt: new Date()
       },
       {
-        //id: 1
+        //id: 4
         title: 'Metro 2034',
         author: 'Dmitry Glukhovsky',
         genre: 'Horror',
         createdAt: new Date(),
         updatedAt: new Date()
-      }
+      },{
+        // id: 5
+        title: 'Metro 2035',
+        author: 'Dmitry Glukhovsky',
+        genre: 'Horror',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+
     ], {});
   },
 
