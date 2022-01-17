@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const cors = require('cors');
 require('dotenv').config();
 
-const app = express();
+const app = express();  
 
 var corsOptions = {
     origin: ['http://127.0.0.1:8000', 'http://localhost:8000'],

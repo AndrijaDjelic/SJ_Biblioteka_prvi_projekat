@@ -12,7 +12,6 @@ const app = express();
 
 
 
-
 function getCookies(req) {
     if (req.headers.cookie == null) return {};
 
@@ -61,5 +60,4 @@ app.use(express.static(path.join(__dirname, 'static')));
 
 app.listen({ port: 8000 }, async () => {
     await sequelize.authenticate();
-    console.log("povezan app");
 });
