@@ -69,4 +69,5 @@ app.post('/login', (req, res) => {
 
 app.listen({ port: 9000 }, async () => {
     await sequelize.authenticate();
+    console.log("povezan app_auth");
 });

@@ -2,9 +2,7 @@ const express = require('express');
 const { sequelize } = require('./models');
 
 
-const booksRt = require('./routes/booksApi');
-const rentBooksRt = require('./routes/rentbooksApi');
-const usersRt = require('./routes/usersApi');
+
 
 const path = require('path');
 const jwt = require('jsonwebtoken');
@@ -12,9 +10,7 @@ require('dotenv').config();
 
 const app = express();
 
-app.use('/admin/books', booksRt);
-app.use('/admin/rentbooks', rentBooksRt);
-app.use('/admin/users', usersRt);
+
 
 
 function getCookies(req) {
@@ -65,4 +61,5 @@ app.use(express.static(path.join(__dirname, 'static')));
 
 app.listen({ port: 8000 }, async () => {
     await sequelize.authenticate();
+    console.log("povezan app");
 });
