@@ -22,12 +22,6 @@ app.use('/admin/rentbooks', rentBooksRt);
 app.use('/admin/users', usersRt);
 
 
-
-
-
-
-
-
 app.listen({ port: 8500 }, async () => {
     await sequelize.authenticate();
     console.log("povezan app_rest");
