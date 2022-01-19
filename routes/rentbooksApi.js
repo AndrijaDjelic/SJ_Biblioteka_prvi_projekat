@@ -37,7 +37,7 @@ route.get('/all', (req, res) => {
         .catch(err => res.status(500).json(err));
 });
 
-route.get('/:id', (req, res) => {
+route.get('/findById/:id', (req, res) => {
     RentBooks.findOne({
         where: { id: req.params.id },
         include: [
@@ -58,11 +58,23 @@ available: {
 */
 
 route.post('/', (req, res) => {
+    
+        console.log(req.body.available)
+    
+    
     RentBooks.create({
         available: req.body.available,
         bookId: req.body.bookId
     })
-        .then(rows => res.json(rows))
+        .then(rentbook => {
+            RentBooks.findOne({
+                where: { id: rentbook.id },
+                include: [
+                    { model: Books, attributes: ['id', 'title', 'author', 'genre'], as: 'book' }
+                ]
+            }).then(rows => res.json(rows))
+                .catch(err => res.status(500).json(err));
+        })
         .catch(err => res.status(500).json(err));
 
 });
