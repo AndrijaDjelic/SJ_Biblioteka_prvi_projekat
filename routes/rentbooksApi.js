@@ -58,10 +58,6 @@ available: {
 */
 
 route.post('/', (req, res) => {
-    
-        console.log(req.body.available)
-    
-    
     RentBooks.create({
         available: req.body.available,
         bookId: req.body.bookId
@@ -86,15 +82,28 @@ route.put('/:id', (req, res) => {
                 rentbooks.bookId = req.body.bookId
 
             rentbooks.save()
-                .then(rows => res.json(rows))
-                .catch(err => res.status(500).json(err));
+                .then(rentbook => {
+                    RentBooks.findOne({
+                        where: { id: rentbook.id },
+                        include: [
+                            { model: Books, attributes: ['id', 'title', 'author', 'genre'], as: 'book' }
+                        ]
+                    }).then(rows => res.json(rows))
+                        .catch(err => res.status(500).json(err));
+                })
         })
         .catch(err => res.status(500).json(err));
 
 });
 
 route.delete('/:id', (req, res) => {
-    RentBooks.findOne({ where: { id: req.params.id } })
+
+    RentBooks.findOne({
+        where: { id: req.params.id },
+        include: [
+            { model: Books, attributes: ['id', 'title', 'author', 'genre'], as: 'book' }
+        ]
+        })
         .then(rentbooks => {
             rentbooks.destroy()
                 .then(rows => res.json(rows))

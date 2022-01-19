@@ -10,6 +10,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
+    <script src="deleteRentBooks.js"></script>
   <title>Books</title>
   <style>
     .header {
@@ -19,7 +20,7 @@
   </style>
 </head>
 
-<body>
+<body onload="init()">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
@@ -49,6 +50,31 @@
       <a class="nav-link active" aria-current="page" href="deleteRentBooks.html">Delete Book Copies</a>
     </li>
   </ul>
+  <div class="container p-1 mt-3 text-warning text-center">
+    <form method="DELETE" action="/admin/rentbooks">
+      <div class="mb-3">
+        <label for="id" class="form-label">Id</label>
+        <input type="number" class="form-control" id="id" name="id">
+      </div>
+      <button type="submit" class="btn btn-primary" id="findById">Delete By Id</button>
+    </form>
+  </div>
+  <div class="container-fluid p-5 text-warning">
+    <h2>Users</h2>           
+    <table class="table table-dark text-succes ">
+      <thead class="thead-dark text-white">
+        <tr>
+          <th>ID</th>
+          <th>Available</th>
+          <th>Title ID</th>
+          <th>Title</th>
+        </tr>
+      </thead>
+      <tbody id="rentBooksTable">
+
+      </tbody>
+    </table>
+  </div>
 </body>
 
 </html>

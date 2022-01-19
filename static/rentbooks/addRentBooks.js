@@ -20,7 +20,7 @@ function init() {
 
         const data = {
             available: document.getElementById('available').checked,
-            titleID: document.getElementById('titleID').value
+            bookId: document.getElementById('titleID').value
             
         };
         document.getElementById('rentBooksTable').innerHTML = '';
@@ -41,7 +41,7 @@ function init() {
                 if (el.msg) {
                     alert(el.msg)
                 } else {
-                    lst.innerHTML += `<tr><td>${el.id}</td> <td>${el.available}</td> <td>${el.bookId}</td></tr>`;
+                    lst.innerHTML += `<tr><td>${el.id}</td> <td>${el.available}</td> <td>${el.bookId}</td><td>${el.book.title}</td></tr>`;
                 }
             });
 
