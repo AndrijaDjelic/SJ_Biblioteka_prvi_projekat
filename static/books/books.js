@@ -16,7 +16,7 @@ function init() {
             });
         });
 
-    document.getElementById('finById').addEventListener('click', e => {
+    document.getElementById('findById').addEventListener('click', e => {
         e.preventDefault();
 
         const id = document.getElementById('id').value
