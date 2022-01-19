@@ -48,7 +48,7 @@ app.post('/login', (req, res) => {
     Users.findOne({ where: { username: req.body.username } })
         .then(usr => {
             console.log(`Sifra u bazi ${usr.password}, Sifra u login ${req.body.password}`);
-            if (bcrypt.compareSync(req.body.password, usr.password)) {
+            if (bcrypt.compareSync(req.body.password, usr.password) && usr.role=='admin') {
                 console.log('Tacna sifra');
                 const obj = {
                     userId: usr.id,

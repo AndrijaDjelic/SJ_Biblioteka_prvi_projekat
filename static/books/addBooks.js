@@ -24,8 +24,6 @@ function init() {
             genre: document.getElementById('genre').value
             
         };
-
-
         document.getElementById('bookTitleTable').innerHTML = '';
         document.getElementById('title').value = '';
         document.getElementById('author').value = '';
