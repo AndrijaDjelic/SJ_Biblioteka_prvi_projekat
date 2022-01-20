@@ -19,7 +19,6 @@ app.use(express.json());
 
 
 app.post('/register', (req, res) => {
-    console.log("u registru smo");
     const obj = {
         username: req.body.username,
         role: req.body.role,
